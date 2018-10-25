@@ -9,10 +9,10 @@ const logger = require('morgan');
 const errorHandler = require('errorhandler');
 const lusca = require('lusca');
 const dotenv = require('dotenv');
-// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const flash = require('express-flash');
 const path = require('path');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const sass = require('node-sass-middleware');
@@ -50,14 +50,15 @@ const passportConfig = require('./config/passport');
  */
 const app = express();
 
-// /**
-//  * Connect to MongoDB.
-//  */
+/**
+ * Connect to MongoDB.
+ */
 // mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
-// mongoose.connection.on('error', function() {
-//     console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
-//     process.exit(1);
-// });
+mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connection.on('error', function() {
+    console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
+    process.exit(1);
+});
 
 /**
  * Express configuration.
@@ -80,10 +81,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     secret: process.env.SESSION_SECRET,
-    // store: new MongoStore({
-    //     url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
-    //     autoReconnect: true
-    // })
+    store: new MongoStore({
+        url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
+        autoReconnect: true
+    })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
