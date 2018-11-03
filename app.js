@@ -150,9 +150,6 @@ app.get('/browse/nature/dinornis', function(req, res) {
 });
 app.get('/browse/futurism', browseController.getFuturism);
 
-// app.get('/featured', featuredController.getFeatured);
-app.get('/publications', publicationsController.getPublications);
-
 /**
  * OAuth authentication routes. (Sign in)
  */
