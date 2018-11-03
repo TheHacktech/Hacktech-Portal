@@ -12,46 +12,147 @@ block extraStyleSheet
             display: none;
         }
 
-block home
-    section.homeintro
-        .intro-container
-            .title
-                span BASIS Inquirer
-                //- old svg width='600px' and old text x='300px'
-                svg(width='100%', height='120px', version='1.1', xmlns='http://www.w3.org/2000/svg')
-                    text#svg_1.path(stroke='white', fill='white', xml:space='preserve', text-anchor='middle', y='90', x='50%', stroke-width='1', style='\
-                    stroke-dasharray: 1000;\
-                    stroke-dashoffset: 1000;\
-                    -webkit-animation: dash 5s 0.5s linear alternate both;\
-                    animation: dash 5s 0.5s linear alternate both;\
-                    ') BASIS Inquirer
-
-
- block content
-     h1 Latest News
-     hr
-     .row
-         .col-sm-6
-             img(src="/img/slide-image3.jpg")
-             h2 Heading
-             p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-             p
-                 a.btn.btn-default(href='#', role='button') Read More »
-         .col-sm-6
-             img(src="/img/slide-image3.jpg")
-             h2 Heading
-             p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-             p
-                 a.btn.btn-default(href='#', role='button') Read More »
-         .col-sm-6
-             img(src="/img/slide-image3.jpg")
-             h2 Heading
-             p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-             p
-                 a.btn.btn-default(href='#', role='button') Read More »
-         .col-sm-6
-             img(src="/img/slide-image3.jpg")
-             h2 Heading
-             p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-             p
-                 a.btn.btn-default(href='#', role='button') Read More »
+        doctype html
+        html(lang='en')
+          head
+            meta(charset='utf-8')
+            meta(http-equiv='X-UA-Compatible', content='IE=edge')
+            link(href='assets/css/index.css', rel='stylesheet')
+            link(rel='shortcut icon', type='image/x-icon', href='./img/favicon.ico')
+            script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+            script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase.js')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js')
+            meta(name='viewport', content='width=device-width, initial-scale=1.0')
+            meta(name='description', content="Caltech's annual Hackathon!")
+            title Hacktech 2019
+          body
+            // LANDING
+            section#landing
+              .contents
+                img#hektek(src='img/logo_2018.png')
+                h1 Hacktech 2019
+                h3 Spring 2019 @ Pasadena, CA
+                // PRE-APPLICATION INTEREST FORM
+                // <div id="form"><input type="email" id="hackerEmail" placeholder="Email">
+                // <button type="btn btn-primary" id="updatebtn" onclick="window.open('https://goo.gl/forms/Diz76LNwmi6JlBPz2')">Receive Updates</button></div>
+                // <div id="form"><button type="btn btn-primary" id="updatebtn" onclick="window.open('[INTEREST_FORM_LINK]')">Apply Here on 12/9!</button>
+                button#apply(onclick="window.open('https://goo.gl/forms/Diz76LNwmi6JlBPz2');") Receive Updates
+                // APPLICATION
+                // <button id="apply" onclick="location.href='[TYPEFORM_LINK]';">Apply</button>
+                // POST-APPLICATION
+                // <button id="apply">Applications are closed!</button>
+                // POST-EVENT
+                // <button id="apply">Thank you for coming!</button>
+            // INTRO
+            section#intro
+              .contents
+                p
+                  b This is Hacktech.
+                p
+                  | A place where, given a total of 36 thrilling hours with your team, your idea, and our fuel (in the form of snacks, drinks, and more), you produce a fantastic project, while forming lasting relationships and chugging more caffeine than you ever thought possible.
+            // FAQ
+            section#faq
+              .contents
+                h3 FAQ
+                .faqcolumn
+                  .faqelem
+                    .question Tell me more!
+                    .answer
+                      | Hacktech is Caltech's premier intercollegiate hackathon: for 36 hours, nearly 400 awesome student hackers will identify and build innovative, technological solutions to solve problems in a variety of disciplines.
+                  .faqelem
+                    .question Who can come?
+                    .answer
+                      | Any undergraduate or graduate students from anywhere in the world. We admit high school students on a case-by-case basis, and also welcome beginners - Hacktech is meant to be a learning experience! We want you to come here to have fun and leave having learned something.
+                  .faqelem
+                    .question How do teams work?
+                    .answer
+                      | You can sign up as a team of up to four members. Make sure that all of your team members submit an application! If you don't have a team before the event, don't fret! We will help you find fellow hackers to work with once you arrive.
+                  .faqelem
+                    .question What should I bring?
+                    .answer
+                      | A student ID, a laptop, and a charger are the only necessities. We recommend you bring clothes, toiletries, and a sleeping bag as well!
+                  .faqelem
+                    .question What can I create?
+                    .answer
+                      | Absolutely anything you want - websites, apps, hardware, you name it. We encourage you to go above and beyond the typical software project and make something that combines software with finance / medicine / electronics / science!
+                  .faqelem
+                    .question How much will it cost?
+                    .answer
+                      | It's absolutely free! We'll be providing you with meals, a place to hack, and swag. We will also be offering travel reimbursements on a case-by-case basis!
+                .faqcolumn
+                  .faqelem
+                    .question How will I get there?
+                    .answer
+                      | We will be sending buses free of charge to certain universities in SoCal and NorCal. We may also be giving out travel reimbursements for flights to out-of-state hackers!
+                  .faqelem
+                    .question Anything else I should know?
+                    .answer
+                      | There are a few things we don't encourage; you should refer to the MLH Code of Conduct
+                      a(href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf', target='_blank') here
+                      |  for some guidelines to follow. Also, be smart - don't use/bring anything that you obviously shouldn't, including: alcohol, open flames, firearms, katanas, candy canes, maces, bassoons, etc.
+                  .faqelem
+                    .question Sounds great, how do I apply?
+                    // <div class="answer">Applications are closed. Acceptances have been sent out :)</div>
+                    .answer Applications will open in December!
+                  .faqelem
+                    .question What if I'm a Caltech student?
+                    .answer The application process is no different for Caltech students.
+                  .faqelem
+                    .question Help!
+                    .answer
+                      | Shoot us an email at team@hacktech.io and we'll get back to you before you can say "Hacktech is awe-!"
+            // SPONSORS
+            section#sponsors
+              .contents
+                h3 Hacktech 2019 Sponsors
+                h5
+                  | Interested in sponsoring for 2019? Let us know at
+                  a(href='mailto:sponsors@hacktech.io') sponsors@hacktech.io
+                  | !
+                // <img class="sponsor" src="img/logo/make_school.png" />
+              .contents
+                h3 Hacktech 2018 Sponsors
+                img.sponsor(src='img/logo/microsoft.png')
+                img.sponsor(src='img/logo/disney.png')
+                img.sponsor(src='img/logo/ebay.png')
+                img.sponsor(src='img/logo/twilio.png')
+                img.sponsor(src='img/logo/northrop_grumman.png')
+                img.sponsor(src='img/logo/sapient.png')
+                img.sponsor(src='img/logo/google.png')
+                img.sponsor(src='img/logo/facebook.png')
+                img.sponsor(src='img/logo/ieee.png')
+                img.sponsor(src='img/logo/1517_fund.png')
+                img.sponsor(src='img/logo/youinkit.png')
+                a(href='http://hackp.ac/mlh-stickermule-hackathons')
+                  img.sponsor(src='img/logo/sticker_mule.png')
+              .contents
+                h3 Hacktech 2018 Partners
+                img.sponsor(src='img/logo/cmslogo.png')
+                img.sponsor(src='img/logo/mlh_logo.png')
+                //
+                  <img class="sponsor" id="hackerfund" src="img/logo/hackerfund.png" />
+                br
+                img#caltech.sponsor(src='img/logo/caltech.png')
+                // <img class="sponsor" src="/img/logo/caltechcms.png" />
+            // FOOTER
+            section#footer
+              .contents
+                #social
+                  a(href='http://twitter.com/theHackTech', target='_blank')
+                    img.socialicon(src='img/twitter.png')
+                  a(href='http://facebook.com/theHackTech', target='_blank')
+                    img.socialicon(src='img/facebook.png')
+                  a(href='https://www.linkedin.com/company/hacktech', target='_blank')
+                    img.socialicon(src='img/linkedin.png')
+                  a(href='mailto:team@hacktech.io', target='_blank')
+                    img.socialicon(src='img/email.png')
+                |         ©2019 Hacktech
+                br
+                |         All other trademarks and logos ® their respective owners.
+                br
+                |         Made by the Hacktech team with ♥
+            // MLH BADGE
+            a#mlh-trust-badge(style='display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000', href='https://mlh.io/seasons/na-2018/events?utm_source=na-2018&utm_medium=TrustBadge&utm_campaign=na-2018&utm_content=blue', target='_blank')
+              img(src='https://s3.amazonaws.com/logged-assets/trust-badge/2018/blue.svg', alt='Major League Hacking 2017 Hackathon Season', style='width:100%')
+            // JAVASCRIPT FOR FAQ ELEMENT BEHAVIOR
+            script(src='js/index.js')
