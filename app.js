@@ -35,8 +35,6 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const aboutController = require('./controllers/about');
 const browseController = require('./controllers/browse');
-// const featuredController = require('./controllers/featured');
-const publicationsController = require('./controllers/publications');
 
 const contactController = require('./controllers/contact');
 
